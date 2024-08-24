@@ -12,7 +12,7 @@ The code is in the `learning.py` file.
 env_name = 'selfbody'
 alList=['PPO','TD3']
 algorithm = alList[0]
-save_model = 'selfbody' + algorithm+'version5.2_'+'1_new'
+save_model = 'selfbody' + algorithm+'version5.2_'+'1'
 save_every = 100000
 train_for = 250000
 test_for = 1000
