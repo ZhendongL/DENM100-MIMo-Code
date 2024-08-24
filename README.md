@@ -1,12 +1,13 @@
 # Queen Mary University of London: DENM100 - Extended Research Project - 2023/24
 
-By Zhendong Liu
+- By Zhendong Liu
+- ID:200352125
 
 Initial MIMo open source project: [MIMo](https://github.com/trieschlab/MIMo).
 The following are some of the modifications made based on the MIMo open source project.
 
 ## Training Models
-The code is in the learning.py file.
+The code is in the `learning.py` file.
 ```python
 env_name = 'selfbody'
 alList=['PPO','TD3']
@@ -44,7 +45,7 @@ test(env, save_dir, model=model, test_for=test_for, render_video=render)
 ```
 
 ## Evaluating Models
-The model generated after training is saved locally and the trained model is evaluated using the following code. The code is in the evaluateModel.py file.
+The model generated after training is saved locally and the trained model is evaluated using the following code. The code is in the `evaluateModel.py` file.
 ```python
 algorithm = 'PPO'  # PPO  TD3
 actuation_model = MuscleModel
@@ -70,7 +71,7 @@ for i in range(12000):
 ```
 
 ## Change gear and force range
-Modify the MIMo gears and the range of joint movement, the code is in the selfbody.matexml file.
+Modify the MIMo gears and the range of joint movement, the code is in the `selfbody_mate.xml` file.
 ```xml
 name="act:right_shoulder_horizontal" gear="5" forcerange="-10 10"
 ```
@@ -92,4 +93,11 @@ def find_touch_max(self, sensor_output):
 
    return touch_part
 ```
+
+## Data collection
+Training data for different versions of the model, in the `PPO5.0.csv`, `PPO5.1.csv`and so on.
+
+## Data Visualisation
+Based on the data collected, it was plotted as a learning curve as follows.
+![](./images/4versions.png)
 
