@@ -1,7 +1,7 @@
 # Queen Mary University of London: DENM100 - Extended Research Project - 2023/24
 
 - By Zhendong Liu
-- ID:200352125
+- ID: 200352125
 
 Initial MIMo open source project: [MIMo](https://github.com/trieschlab/MIMo).
 The following are some of the modifications made based on the MIMo open source project.
