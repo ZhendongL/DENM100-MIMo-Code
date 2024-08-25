@@ -101,3 +101,10 @@ Training data for different versions of the model, in the `PPO5.0.csv`, `PPO5.1.
 Based on the data collected, it was plotted as a learning curve as follows.
 ![](./images/versionSit.png)
 
+![](./images/realAndmimo.png)
+
+![](./images/bodysensor.png)
+
+
+
+
