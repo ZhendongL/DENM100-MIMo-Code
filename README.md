@@ -99,5 +99,5 @@ Training data for different versions of the model, in the `PPO5.0.csv`, `PPO5.1.
 
 ## Data Visualisation
 Based on the data collected, it was plotted as a learning curve as follows.
-![](./images/4versions.png)
+![](./images/versionSit.png)
 
