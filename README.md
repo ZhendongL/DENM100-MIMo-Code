@@ -95,7 +95,7 @@ def find_touch_max(self, sensor_output):
 ```
 
 ## Data collection
-Training data for different versions of the model, in the `PPO5.0.csv`, `PPO5.1.csv`and so on.
+Training data for different versions of the model, in the `PPO4.0.csv`, `PPO4.1.csv`and so on.
 
 ## Data Visualisation
 ![](./images/versionSit.png)
