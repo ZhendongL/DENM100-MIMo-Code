@@ -77,7 +77,7 @@ name="act:right_shoulder_horizontal" gear="5" forcerange="-10 10"
 ```
 
 ## Touch judgement modification
-Iterate over all sensors, and code in the selfbody.py file.
+Iterate over all sensors, and code in the `selfbody.py` file.
 ```python
 def find_touch_max(self, sensor_output):
    touch_part=False
