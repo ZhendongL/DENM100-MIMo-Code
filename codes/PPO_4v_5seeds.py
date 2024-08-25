@@ -6,16 +6,16 @@ import matplotlib.pyplot as plt
 sns.set_style("whitegrid")
 
 # Read the data from the file
-df_ppo_0 = pd.read_csv("PPO5.0.csv")
-df_ppo_1 = pd.read_csv("PPO5.1.csv")
-df_ppo_2 = pd.read_csv("PPO5.2.csv")
-df_ppo_3 = pd.read_csv("PPO5.3.csv")
+df_ppo_0 = pd.read_csv("PPO4.0.csv")
+df_ppo_1 = pd.read_csv("PPO4.1.csv")
+df_ppo_2 = pd.read_csv("PPO4.2.csv")
+df_ppo_3 = pd.read_csv("PPO4.3.csv")
 
 # Extract columns containing reward values for each seed
-ppo_reward_columns_0 = ['PPO5.0_0', 'PPO5.0_1','PPO5.0_10', 'PPO5.0_50','PPO5.0_100']
-ppo_reward_columns_1 = ['PPO5.1_0', 'PPO5.1_1','PPO5.1_10', 'PPO5.1_50','PPO5.1_100']
-ppo_reward_columns_2 = ['PPO5.2_0', 'PPO5.2_1','PPO5.2_10', 'PPO5.2_50','PPO5.2_100']
-ppo_reward_columns_3 = ['PPO5.3_0', 'PPO5.3_1','PPO5.3_10', 'PPO5.3_50','PPO5.3_100']
+ppo_reward_columns_0 = ['PPO4.0_0', 'PPO4.0_1','PPO4.0_10', 'PPO4.0_50','PPO4.0_100']
+ppo_reward_columns_1 = ['PPO4.1_0', 'PPO4.1_1','PPO4.1_10', 'PPO4.1_50','PPO4.1_100']
+ppo_reward_columns_2 = ['PPO4.2_0', 'PPO4.2_1','PPO4.2_10', 'PPO4.2_50','PPO4.2_100']
+ppo_reward_columns_3 = ['PPO4.3_0', 'PPO4.3_1','PPO4.3_10', 'PPO4.3_50','PPO4.3_100']
 
 # Compute the mean reward across seeds for each step
 ppo_std_0 = df_ppo_0[ppo_reward_columns_0].std(axis=1)

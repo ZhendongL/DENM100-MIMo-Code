@@ -227,7 +227,7 @@ We need these not just for the initial position but also resetting the position 
 :meta hide-value:
 """
 
-SITTING_POSITION= SITTING_POSITION_LAY
+SITTING_POSITION= SITTING_POSITION_SIT
 
 SELFBODY_XML = os.path.join(SCENE_DIRECTORY, "selfbody_scene.xml")
 """ Path to the scene for this experiment.
@@ -534,13 +534,18 @@ class MIMoSelfBodyEnv(MIMoEnv):
         #if touch right part
         touch_part = self.find_touch_max(self.touch.sensor_outputs)
 
-        fingers_touch_max = max(
-            np.max(self.touch.sensor_outputs[active_geom_codes[-1]]),
-            np.max(self.touch.sensor_outputs[active_geom_codes[-2]])
-        )
+        # fingers_touch_max = max(
+        #     np.max(self.touch.sensor_outputs[active_geom_codes[-1]]),
+        #     np.max(self.touch.sensor_outputs[active_geom_codes[-2]])
+        # )
 
         #touch_part
-        contact_with_fingers = touch_part#(fingers_touch_max > 0)
+        contact_with_fingers =  touch_part #(fingers_touch_max > 0)
+
+        # touch floor
+        touch_floor =False
+        if self.data.body("right_fingers").xpos[2] <= 0.02:
+            touch_floor=True
 
         # print body
         # self.once_test_func()
@@ -550,7 +555,7 @@ class MIMoSelfBodyEnv(MIMoEnv):
         # compute reward:
         if info["is_success"]:
             if self.target_body in BODY_REWARD:
-                reward = 500 #BODY_REWARD[self.target_body]
+                reward = 500#BODY_REWARD[self.target_body]
                 self.touch_dict[self.target_body]+=1
             else:
                 reward = 500
@@ -558,6 +563,11 @@ class MIMoSelfBodyEnv(MIMoEnv):
 
             self.touch_target += 1
             # print('reward: ',reward,' touched:',self.target_body)
+
+        elif touch_floor:
+            self.touch_floor += 1
+            self.touch_dict['floor'] += 1
+            reward = 0
 
         elif contact_with_fingers:
             target_body_pos = self.data.body(self.target_body).xpos
@@ -571,17 +581,16 @@ class MIMoSelfBodyEnv(MIMoEnv):
                 self.touch_dict[self.other_part] += 1
             else:
                 self.touch_dict[self.other_part] = 1
-
             # print('zzvliu touched other part,distance: -', distance)
-
         else:
             reward = -1
+            self.touch_none += 1
 
-            if self.data.body("right_fingers").xpos[2] <= 0.02:
-                self.touch_floor += 1
-                self.touch_dict['floor'] += 1
-            else:
-                self.touch_none += 1
+            # if self.data.body("right_fingers").xpos[2] <= 0.02:
+            #     self.touch_floor += 1
+            #     self.touch_dict['floor'] += 1
+            # else:
+            #     self.touch_none += 1
 
         return reward
 
